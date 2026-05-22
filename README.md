@@ -71,20 +71,26 @@ python -m http.server 8000
 ## 📁 项目结构 (Project Structure)
 
 ```
-├── index.html          # 主页面
-├── style.css           # 样式文件
-├── game.js             # 游戏主逻辑
-├── ai.js               # AI 算法
-├── network.js          # 网络通信
-├── referee.png         # 角色图片(正常)
-├── referee1.jpg        # 角色图片(害羞)
-├── referee2.jpg        # 角色图片(生气)
-├── referee3.jpg        # 角色图片(开心)
-├── referee_happy.png   # 角色图片(胜利)
-├── referee_sad.png     # 角色图片(失败)
-├── referee_angry.png   # 角色图片(生气)
-├── referee_thinking.png # 角色图片(思考)
-└── README.md           # 项目说明
+├── index.html               # 主页面
+├── README.md                # 项目说明
+├── src/                     # 源代码
+│   ├── ai.js                # AI 算法
+│   ├── game.js              # 游戏主逻辑
+│   └── network.js           # 网络通信
+└── assets/                  # 静态资源
+    ├── images/              # 图片资源
+    │   ├── ScreenShot.png   # 游戏截图
+    │   ├── referee.png      # 角色图片(默认)
+    │   ├── referee1.jpg     # 角色图片(害羞)
+    │   ├── referee2.jpg     # 角色图片(生气)
+    │   ├── referee3.jpg     # 角色图片(开心)
+    │   ├── referee_normal.png   # 角色图片(正常)
+    │   ├── referee_happy.png    # 角色图片(胜利)
+    │   ├── referee_sad.png      # 角色图片(失败)
+    │   ├── referee_angry.png    # 角色图片(生气)
+    │   └── referee_thinking.png # 角色图片(思考)
+    └── styles/              # 样式文件
+        └── style.css        # 主样式
 ```
 
 ---
@@ -138,7 +144,7 @@ A Gomoku (Five in a Row) game with Chinese style, featuring a cute AI character 
 ## 🚀 Quick Start
 
 ### Online Demo
-Visit [GitHub Pages](https://pumatlarge.github.io/cuting-gumoku-game/) to play instantly!
+Download the zip from [Releases](https://github.com/Pumatlarge/cuting-gumoku-game/releases/latest), extract and open `index.html` to play!
 
 ### Run Locally
 ```bash
@@ -167,13 +173,26 @@ python -m http.server 8000
 ## 📁 Project Structure
 
 ```
-├── index.html          # Main page
-├── style.css           # Stylesheet
-├── game.js             # Game logic
-├── ai.js               # AI algorithm
-├── network.js          # Network communication
-├── referee*.png/jpg    # Character images
-└── README.md           # Documentation
+├── index.html               # Main page
+├── README.md                # Documentation
+├── src/                     # Source code
+│   ├── ai.js                # AI algorithm
+│   ├── game.js              # Game logic
+│   └── network.js           # Network communication
+└── assets/                  # Static assets
+    ├── images/              # Image resources
+    │   ├── ScreenShot.png   # Game screenshot
+    │   ├── referee.png      # Character (default)
+    │   ├── referee1.jpg     # Character (shy)
+    │   ├── referee2.jpg     # Character (angry)
+    │   ├── referee3.jpg     # Character (happy)
+    │   ├── referee_normal.png   # Character (normal)
+    │   ├── referee_happy.png    # Character (win)
+    │   ├── referee_sad.png      # Character (lose)
+    │   ├── referee_angry.png    # Character (angry)
+    │   └── referee_thinking.png # Character (thinking)
+    └── styles/              # Stylesheets
+        └── style.css        # Main stylesheet
 ```
 
 ---
