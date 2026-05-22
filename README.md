@@ -55,7 +55,7 @@ python -m http.server 8000
 
 ## 🎯 游戏截图 (Screenshots)
 
-![游戏界面](https://raw.githubusercontent.com/Pumatlarge/cuting-gumoku-game/main/screenshot.png)
+![游戏界面](assets/ScreenShot.png)
 
 ---
 
