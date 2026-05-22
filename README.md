@@ -33,7 +33,7 @@
 ## 🚀 快速开始 (Quick Start)
 
 ### 在线体验 (Online Demo)
-直接访问 [GitHub Pages](https://pumatlarge.github.io/cuting-gumoku-game/) 即可开始游戏！
+下载 [Releases](https://github.com/Pumatlarge/cuting-gumoku-game/releases/latest) 中的压缩包，解压后打开 `index.html` 即可开始游戏！
 
 ### 本地运行 (Run Locally)
 ```bash
