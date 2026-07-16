@@ -266,7 +266,11 @@ function handleGameOver(winner) {
     if (undoBtn) undoBtn.disabled = true;
     setTimeout(() => {
         modal.classList.remove('hidden');
-        if (winner === BLACK) {
+        if (winner === null) {
+            modalTitle.textContent = "平局";
+            modalMessage.textContent = "棋盘已满，双方握手言和！";
+            updateReferee("势均力敌，<br>这局算平手吧！", 'start');
+        } else if (winner === BLACK) {
             modalTitle.textContent = "恭喜获胜！";
             modalMessage.textContent = GameNetwork.isOnline ? (GameNetwork.myRole === BLACK ? "你战胜了对手！" : "对手获得了胜利") : "你战胜了婷婷！";
             updateReferee(getRandomPhrase('playerWin'), 'playerWin');
@@ -284,6 +288,7 @@ function placePiece(x, y) {
     lastMove = { x, y };
     pieceSound.play().catch(e => { });
     if (checkWin(x, y, currentPlayer)) { render(); handleGameOver(currentPlayer); return true; }
+    if (board.every(column => column.every(cell => cell !== EMPTY))) { render(); handleGameOver(null); return true; }
     currentPlayer = (currentPlayer === BLACK) ? WHITE : BLACK;
     startTurnTimer();
     const isMyTurn = !GameNetwork.isOnline || (currentPlayer === GameNetwork.myRole);
@@ -445,9 +450,6 @@ startCancelBtn.addEventListener('click', () => {
 });
 
 helpBtn.addEventListener('click', () => { helpModal.classList.remove('hidden'); });
-closeHelpBtn.addEventListener('click', () => {
-    helpModal.classList.add('hidden');
-});
 
 // 移除 window.onload 避免必须等待页面图片资源加载完毕，实现立即绘制棋盘和自动开局
 GameNetwork.init();
@@ -458,3 +460,13 @@ render();
 
 // 自动弹出说明框
 helpModal.classList.remove('hidden');
+
+window.render_game_to_text = () => JSON.stringify({
+    coordinateSystem: 'board[x][y], origin top-left, x right, y down',
+    mode: GameNetwork.isOnline ? 'online' : 'ai',
+    gameOver,
+    currentPlayer,
+    lastMove,
+    board
+});
+window.advanceTime = () => render();

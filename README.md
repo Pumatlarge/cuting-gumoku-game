@@ -2,6 +2,8 @@
 
 一个具有中国风特色的五子棋游戏，与可爱的AI角色"婷婷"进行人机对战，或通过互联网与好友PK！
 
+[🎮 在线游玩](https://pumatlarge.github.io/cuting-gumoku-game/) · [下载最新版](https://github.com/Pumatlarge/cuting-gumoku-game/releases/latest) · [MIT License](LICENSE)
+
 ---
 
 ## 🎮 游戏特色 (Features)
@@ -33,7 +35,7 @@
 ## 🚀 快速开始 (Quick Start)
 
 ### 在线体验 (Online Demo)
-下载 [Releases](https://github.com/Pumatlarge/cuting-gumoku-game/releases/latest) 中的压缩包，解压后打开 `index.html` 即可开始游戏！
+打开 [GitHub Pages 在线版](https://pumatlarge.github.io/cuting-gumoku-game/) 即可游玩，也可以下载 [Releases](https://github.com/Pumatlarge/cuting-gumoku-game/releases/latest) 中的压缩包离线运行。
 
 ### 本地运行 (Run Locally)
 ```bash
@@ -79,7 +81,6 @@ python -m http.server 8000
 │   └── network.js           # 网络通信
 └── assets/                  # 静态资源
     ├── images/              # 图片资源
-    │   ├── ScreenShot.png   # 游戏截图
     │   ├── referee.png      # 角色图片(默认)
     │   ├── referee1.jpg     # 角色图片(害羞)
     │   ├── referee2.jpg     # 角色图片(生气)
@@ -89,15 +90,22 @@ python -m http.server 8000
     │   ├── referee_sad.png      # 角色图片(失败)
     │   ├── referee_angry.png    # 角色图片(生气)
     │   └── referee_thinking.png # 角色图片(思考)
+    ├── ScreenShot.png       # 游戏截图
     └── styles/              # 样式文件
         └── style.css        # 主样式
 ```
 
 ---
 
+## 🔒 联机说明
+
+互联网 PK 使用公共 MQTT 服务，仅适合与好友轻量试玩。房间没有账号认证、密码或防作弊机制，请勿通过对局传递敏感信息。
+
+---
+
 ## 📜 许可证 (License)
 
-MIT License
+[MIT License](LICENSE)
 
 ---
 
@@ -111,6 +119,8 @@ MIT License
 # Xianjian Qiting · Gomoku
 
 A Gomoku (Five in a Row) game with Chinese style, featuring a cute AI character "Tingting" for single-player mode, or play online with friends!
+
+[🎮 Play Online](https://pumatlarge.github.io/cuting-gumoku-game/) · [Latest Release](https://github.com/Pumatlarge/cuting-gumoku-game/releases/latest) · [MIT License](LICENSE)
 
 ---
 
@@ -143,7 +153,7 @@ A Gomoku (Five in a Row) game with Chinese style, featuring a cute AI character 
 ## 🚀 Quick Start
 
 ### Online Demo
-Download the zip from [Releases](https://github.com/Pumatlarge/cuting-gumoku-game/releases/latest), extract and open `index.html` to play!
+Play on [GitHub Pages](https://pumatlarge.github.io/cuting-gumoku-game/), or download the zip from [Releases](https://github.com/Pumatlarge/cuting-gumoku-game/releases/latest) for offline use.
 
 ### Run Locally
 ```bash
@@ -180,7 +190,6 @@ python -m http.server 8000
 │   └── network.js           # Network communication
 └── assets/                  # Static assets
     ├── images/              # Image resources
-    │   ├── ScreenShot.png   # Game screenshot
     │   ├── referee.png      # Character (default)
     │   ├── referee1.jpg     # Character (shy)
     │   ├── referee2.jpg     # Character (angry)
@@ -190,15 +199,22 @@ python -m http.server 8000
     │   ├── referee_sad.png      # Character (lose)
     │   ├── referee_angry.png    # Character (angry)
     │   └── referee_thinking.png # Character (thinking)
+    ├── ScreenShot.png       # Game screenshot
     └── styles/              # Stylesheets
         └── style.css        # Main stylesheet
 ```
 
 ---
 
+## 🔒 Online Mode Notice
+
+Online multiplayer uses a public MQTT service and is intended for casual games with friends. Rooms have no account authentication, password, or anti-cheat protection; do not transmit sensitive information.
+
+---
+
 ## 📜 License
 
-MIT License
+[MIT License](LICENSE)
 
 ---
 

@@ -2,7 +2,7 @@ const GameNetwork = {
     BLACK: 1, WHITE: 2,
     client: null, roomId: null, isOnline: false, myRole: null, onMessageCallback: null, topic: '',
     get conn() { return this.client && this.client.connected ? this.client : null; },
-    generateId() { return Math.random().toString(36).substr(2, 8).toUpperCase(); },
+    generateId() { return crypto.randomUUID().slice(0, 8).toUpperCase(); },
     init() {
         const urlParams = new URLSearchParams(window.location.search);
         const roomId = urlParams.get('room');
@@ -64,11 +64,16 @@ const GameNetwork = {
             pkModal.classList.add('hidden');
         });
 
-        document.getElementById('copyBtn').addEventListener('click', function () {
+        document.getElementById('copyBtn').addEventListener('click', async function () {
             const shareLink = document.getElementById('shareLink');
             if (shareLink && shareLink.value) {
-                shareLink.select(); document.execCommand('copy');
-                this.textContent = '已复制!'; setTimeout(() => this.textContent = '复制', 2000);
+                try {
+                    await navigator.clipboard.writeText(shareLink.value);
+                    this.textContent = '已复制!';
+                } catch {
+                    this.textContent = '复制失败';
+                }
+                setTimeout(() => this.textContent = '复制', 2000);
             }
         });
     },
@@ -98,7 +103,13 @@ const GameNetwork = {
             }
         });
         this.client.on('message', (topic, message) => {
-            const data = JSON.parse(message.toString());
+            let data;
+            try {
+                data = JSON.parse(message.toString());
+            } catch {
+                return;
+            }
+            if (!isValidNetworkMessage(data)) return;
             if (data._sender === clientId) return;
             if (data.type === 'guest_ready' && this.myRole === this.BLACK) {
                 this.updateStatus('联机成功！请开局');
@@ -136,3 +147,13 @@ const GameNetwork = {
     },
     onMessage(callback) { this.onMessageCallback = callback; }
 };
+
+function isValidNetworkMessage(data) {
+    if (!data || typeof data !== 'object') return false;
+    if (['guest_ready', 'start', 'restart'].includes(data.type)) return true;
+    return data.type === 'move'
+        && Number.isInteger(data.x) && data.x >= 0 && data.x < 15
+        && Number.isInteger(data.y) && data.y >= 0 && data.y < 15;
+}
+
+if (typeof module !== 'undefined') module.exports = { isValidNetworkMessage };
